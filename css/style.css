@@ -39,11 +39,20 @@ body {
     max-width: 800px;
     width: 100%;
 }
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.6); /* soft pink glow */
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
 
 .avatar {
     width: 120px;
     height: 120px;
-    border-radius: 50%;
+    border-radius: 150%;
     background: linear-gradient(45deg, #ff1493, #ff69b4, #000);
     margin: 0 auto 30px;
     display: flex;
@@ -76,7 +85,11 @@ body {
     font-size: 20px;
     color: #ccc;
     margin-bottom: 30px;
-    animation: fadeIn 1s ease-out 0.9s both;
+    font-family: 'Courier New', monospace;
+    border-right: 2px solid #ff1493;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typewriter 4s steps(40) 1s both, blink 1s infinite 1s;
 }
 
 .description {
@@ -314,7 +327,38 @@ body {
     left: 20%;
     animation-delay: 4s;
 }
+/*profile pic animation*/
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+  }
+}
 
+
+/* Animation for subhead under name */
+@keyframes typewriter {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    0%, 50% {
+        border-color: #ff1493;
+    }
+    51%, 100% {
+        border-color: transparent;
+    }
+}
 @keyframes fadeInUp {
     from {
         opacity: 0;
